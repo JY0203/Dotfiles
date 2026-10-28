@@ -1,0 +1,32 @@
+background = #0d0d0d
+foreground = #e6dfc8
+cursor-color = #e6dfc8
+selection-background = #2a2825
+selection-foreground = #e6dfc8
+
+palette = 0=#161614
+palette = 1=#d9776b
+palette = 2=#a3b18a
+palette = 3=#e0c98a
+palette = 4=#8fa8b8
+palette = 5=#b89bb5
+palette = 6=#8bb5ad
+palette = 7=#e6dfc8
+palette = 8=#6b675c
+palette = 9=#e58f84
+palette = 10=#b5c49a
+palette = 11=#ecd89c
+palette = 12=#a3bccb
+palette = 13=#c9aec6
+palette = 14=#9fc7bf
+palette = 15=#f4efe0
+
+background-opacity = 0.7
+background-blur = 20
+macos-titlebar-style = transparent
+window-padding-x = 12
+window-padding-y = 8
+window-padding-balance = true
+
+font-family = JetBrainsMono Nerd Font
+font-size = 14
