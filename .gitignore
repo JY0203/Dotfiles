@@ -1,1 +1,13 @@
 .DS_Store
+
+# secrets
+.env
+.env.*
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+*.local
+*.secret
+*.secrets
+credentials*
