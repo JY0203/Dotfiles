@@ -7,9 +7,8 @@ My macOS terminal setup: **Ghostty + tmux + Neovim**, with a minimal "cream on b
 | Path | Description |
 |---|---|
 | `ghostty/` | Ghostty config: transparent + blurred window, cream-black palette, JetBrainsMono Nerd Font |
-| `tmux/tmux.conf` | tmux config: transparent status bar, rounded pill tabs, `Alt`-based shortcuts, vi copy mode |
+| `tmux/tmux.conf` | tmux config: transparent status bar, rounded pill tabs, prefix-based shortcuts, dimmed inactive panes, vi copy mode |
 | `nvim/` | Hand-written Lua config (no distro) using `vim.pack`, with a custom `cream-black` colorscheme (`nvim/colors/cream-black.lua`) |
-| `install.sh` | Symlinks the folders above into `~/.config/` |
 
 ## Theme
 
@@ -40,11 +39,22 @@ Neovim backgrounds are set to `NONE` so the Ghostty transparency shows through a
 
 ## tmux shortcuts
 
-- Prefix: `Ctrl+s`
-- `Alt+v` / `Alt+s`: split horizontally / vertically
-- `Alt+t`: new window, `Alt+w`: kill pane, `Alt+1..4`: select window
-- `Alt+h/j/k/l`: move between panes
-- `Alt+r`: reload config
+Prefix: `Ctrl+t` (press twice to send `Ctrl+t` to the app). Pane movement mirrors Neovim's `Ctrl+w h/j/k/l`.
+
+| Keys | Action |
+|---|---|
+| `prefix v` / `prefix s` | Split side by side / stacked (opens in current dir, evens out layout) |
+| `prefix %` / `prefix "` | tmux default splits, kept as-is |
+| `prefix h/j/k/l` | Move between panes |
+| `prefix H/J/K/L` | Resize pane (repeatable) |
+| `prefix c` | New window in current dir |
+| `prefix 1..9` | Select window |
+| `prefix x` / `prefix e` | Kill pane (confirms) / kill all other panes |
+| `prefix z` | Zoom pane |
+| `prefix w` | Pick session / window from a tree |
+| `prefix g` | lazygit in a popup |
+| `prefix [` | Copy mode: `v` select, `y` copy to clipboard |
+| `prefix r` | Reload config |
 
 ## Install
 
@@ -66,7 +76,7 @@ mv ~/.config/nvim ~/.config/nvim.bak 2>/dev/null
 mv ~/.config/tmux ~/.config/tmux.bak 2>/dev/null
 mv ~/.config/ghostty ~/.config/ghostty.bak 2>/dev/null
 
-./install.sh
+for d in ghostty nvim tmux; do ln -sfn ~/dotfiles/$d ~/.config/$d; done
 ```
 
 On first launch, Neovim asks to install plugins (`vim.pack`), then Mason installs the language servers and treesitter compiles parsers in the background. Restart Neovim once they finish.
