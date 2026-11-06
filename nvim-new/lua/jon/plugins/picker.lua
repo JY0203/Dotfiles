@@ -13,3 +13,4 @@ map("n", "<leader>fg", function() Snacks.picker.grep() end, { desc = "Grep proje
 map("n", "<leader>fb", function() Snacks.picker.buffers() end, { desc = "Find buffers" })
 map("n", "<leader>fr", function() Snacks.picker.resume() end, { desc = "Resume last picker" })
 map("n", "<leader>fh", function() Snacks.picker.help() end, { desc = "Find help" })
+map("n", "<leader>fd", function() Snacks.picker.diagnostics() end, { desc = "Find diagnostics" })

@@ -26,6 +26,9 @@ vim.pack.add({
   gh("nvim-treesitter/nvim-treesitter"), -- 語法解析：高亮、縮排、折疊
   -- 鎖在 1.x 的 release tag，blink 才會下載預編譯的 fuzzy matcher
   { src = gh("saghen/blink.cmp"), version = vim.version.range("^1") },
+  gh("neovim/nvim-lspconfig"), -- 各 language server 的預設設定（lsp/*.lua）
+  gh("mason-org/mason.nvim"), -- 安裝 language server 執行檔
+  gh("WhoIsSethDaniel/mason-tool-installer.nvim"), -- 啟動時自動補裝清單內缺的工具
 })
 
 require("mini.icons").setup()
@@ -34,3 +37,4 @@ require("jon.plugins.picker")
 require("jon.plugins.explorer")
 require("jon.plugins.treesitter")
 require("jon.plugins.completion")
+require("jon.plugins.lsp")
