@@ -29,6 +29,7 @@ vim.pack.add({
   gh("neovim/nvim-lspconfig"), -- 各 language server 的預設設定（lsp/*.lua）
   gh("mason-org/mason.nvim"), -- 安裝 language server 執行檔
   gh("WhoIsSethDaniel/mason-tool-installer.nvim"), -- 啟動時自動補裝清單內缺的工具
+  gh("lewis6991/gitsigns.nvim"), -- sign column 顯示 git 改動、blame、stage hunk
 })
 
 require("mini.icons").setup()
@@ -38,3 +39,4 @@ require("jon.plugins.explorer")
 require("jon.plugins.treesitter")
 require("jon.plugins.completion")
 require("jon.plugins.lsp")
+require("jon.plugins.git")
