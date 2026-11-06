@@ -1,6 +1,6 @@
 # dotfiles
 
-My macOS terminal setup: **Ghostty + tmux + Neovim (LazyVim)**, with a minimal "cream on black" theme and a translucent, blurred window.
+My macOS terminal setup: **Ghostty + tmux + Neovim**, with a minimal "cream on black" theme and a translucent, blurred window.
 
 ## What's inside
 
@@ -8,7 +8,7 @@ My macOS terminal setup: **Ghostty + tmux + Neovim (LazyVim)**, with a minimal "
 |---|---|
 | `ghostty/` | Ghostty config: transparent + blurred window, cream-black palette, JetBrainsMono Nerd Font |
 | `tmux/tmux.conf` | tmux config: transparent status bar, rounded pill tabs, `Alt`-based shortcuts, vi copy mode |
-| `nvim/` | LazyVim config with a custom `cream-black` colorscheme (`nvim/colors/cream-black.lua`) |
+| `nvim/` | Hand-written Lua config (no distro) using `vim.pack`, with a custom `cream-black` colorscheme (`nvim/colors/cream-black.lua`) |
 | `install.sh` | Symlinks the folders above into `~/.config/` |
 
 ## Theme
@@ -25,8 +25,18 @@ Neovim backgrounds are set to `NONE` so the Ghostty transparency shows through a
 
 ## Neovim
 
-- LazyVim with the `lang.python` extra (see `nvim/lazyvim.json` for what is enabled).
-- Plugin versions are pinned in `nvim/lazy-lock.json`.
+- Requires Neovim 0.12+ (uses the built-in `vim.pack` plugin manager).
+- Plugin versions are pinned in `nvim/nvim-pack-lock.json`; update with `:lua vim.pack.update()`.
+- Rule: native vi keys are never remapped; custom keys live under `<leader>` (Space).
+
+| Keys | Action |
+|---|---|
+| `<leader>ff` / `fg` / `fb` / `fr` / `fh` / `fd` / `fs` | Find files / grep / buffers / resume / help / diagnostics / symbols |
+| `<leader>e` | File explorer (oil) |
+| `gd`, `grr`, `gri`, `K`, `]d` / `[d` | LSP definition / references / implementation / hover / diagnostics |
+| `<leader>ca` / `cr` / `cf` | Code action / rename / format |
+| `]c` / `[c`, `<leader>gp` / `gs` / `gS` / `gr` / `gb` / `gB` / `gd` | Git hunks: navigate / preview / stage / stage buffer / reset / blame / blame buffer / diff |
+| `<leader>p` / `<leader>d` | Paste last yank / delete without yanking |
 
 ## tmux shortcuts
 
@@ -41,7 +51,7 @@ Neovim backgrounds are set to `NONE` so the Ghostty transparency shows through a
 Prerequisites:
 
 ```bash
-brew install neovim tmux ripgrep fd fzf lazygit node python
+brew install neovim tmux ripgrep fd fzf lazygit node python tree-sitter-cli
 brew install --cask ghostty font-jetbrains-mono-nerd-font
 ```
 
@@ -59,4 +69,4 @@ mv ~/.config/ghostty ~/.config/ghostty.bak 2>/dev/null
 ./install.sh
 ```
 
-On first launch, Neovim installs plugins automatically and Mason installs the language servers.
+On first launch, Neovim asks to install plugins (`vim.pack`), then Mason installs the language servers and treesitter compiles parsers in the background. Restart Neovim once they finish.
