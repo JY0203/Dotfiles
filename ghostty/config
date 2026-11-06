@@ -28,6 +28,13 @@ window-padding-x = 12
 window-padding-y = 8
 window-padding-balance = true
 
+cursor-style = block
+cursor-style-blink = true
+
+# ssh 時處理遠端沒有 xterm-ghostty terminfo 的問題（沒寫到的 feature 維持預設）
+# ssh-terminfo：自動把 terminfo 裝到遠端；ssh-env：裝不了就把 TERM 換成 xterm-256color
+shell-integration-features = ssh-env,ssh-terminfo
+
 font-family = JetBrainsMono Nerd Font
 font-size = 14
 font-thicken = true
