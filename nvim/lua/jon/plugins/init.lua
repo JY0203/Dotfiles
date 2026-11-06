@@ -30,6 +30,7 @@ vim.pack.add({
   gh("mason-org/mason.nvim"), -- 安裝 language server 執行檔
   gh("WhoIsSethDaniel/mason-tool-installer.nvim"), -- 啟動時自動補裝清單內缺的工具
   gh("lewis6991/gitsigns.nvim"), -- sign column 顯示 git 改動、blame、stage hunk
+  gh("folke/which-key.nvim"), -- 按下前綴後提示可接的鍵
 })
 
 require("mini.icons").setup()
@@ -40,3 +41,4 @@ require("jon.plugins.treesitter")
 require("jon.plugins.completion")
 require("jon.plugins.lsp")
 require("jon.plugins.git")
+require("jon.plugins.whichkey")
