@@ -43,7 +43,7 @@ Prefix: `Ctrl+t` (press twice to send `Ctrl+t` to the app). Pane movement mirror
 
 | Keys | Action |
 |---|---|
-| `prefix v` / `prefix s` | Split side by side / stacked (opens in current dir, evens out layout) |
+| `prefix v` / `prefix s` | Split side by side / stacked (opens in current dir, evens out panes at the same level) |
 | `prefix %` / `prefix "` | tmux default splits, kept as-is |
 | `prefix h/j/k/l` | Move between panes |
 | `prefix H/J/K/L` | Resize pane (repeatable) |
