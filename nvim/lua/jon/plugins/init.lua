@@ -21,6 +21,7 @@ vim.api.nvim_create_autocmd("PackChanged", {
 
 vim.pack.add({
   gh("nvim-mini/mini.icons"), -- 檔案圖示，snacks / oil 共用
+  gh("nvim-mini/mini.pairs"), -- 自動補右括號、引號；{|} 中按 Enter 展開
   gh("folke/snacks.nvim"), -- 只用 picker 模組
   gh("stevearc/oil.nvim"), -- 用編輯文字的方式管理檔案
   gh("nvim-treesitter/nvim-treesitter"), -- 語法解析：高亮、縮排、折疊
@@ -34,6 +35,7 @@ vim.pack.add({
 })
 
 require("mini.icons").setup()
+require("mini.pairs").setup()
 
 require("jon.plugins.picker")
 require("jon.plugins.explorer")

@@ -5,6 +5,7 @@ local parsers = {
   "python",
   "go", "gomod", "gosum", "gowork",
   "rust",
+  "java", -- 對照學習用
   "lua", "luadoc", "sql",
   -- SRE / 設定檔
   "bash", "yaml", "helm", "json", "toml", "xml", "dockerfile",
